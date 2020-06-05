@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+}
+.app {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    -webkit-animation: changeBackgroundColor 105s infinite linear;
+    -o-animation: changeBackgroundColor 105s infinite linear;
+    animation: changeBackgroundColor 105s infinite linear;
+}
+
+@keyframes changeBackgroundColor {
+    0% {background-color: yellow}
+    10% {background-color: white}
+    20% {background-color: orange}
+    30% {background-color: darkgreen}
+    40% {background-color: darkgoldenrod}
+    650% {background-color: beige}
+    70% {background-color: aqua}
+    80% {background-color: blue}
+    90% {background-color: cadetblue}
+    100% {background-color: yellow}
+
+}
