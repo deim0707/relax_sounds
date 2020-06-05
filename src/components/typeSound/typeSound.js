@@ -16,7 +16,7 @@ const TypeSound = () => {
             </div>
         </div>
     )
-}
+};
 
 export default TypeSound;
 
