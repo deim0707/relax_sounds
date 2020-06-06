@@ -12,7 +12,7 @@ const TypeSound = () => {
                 <SoundItem type='forest'/>
                 <SoundItem type='rain'/>
                 <SoundItem type='thunderstorm'/>
-
+                <SoundItem type='wind'/>
             </div>
         </div>
     )

@@ -1,53 +1,51 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './soundItem.css'
 import useSound from "use-sound";
 
 import items from "./items";
 
 
-function SoundItem({img, sound, type}) {
-    const [volume, setVolume] = useState(7)
+function SoundItem({type}) {
+    const [volume, setVolume] = useState(0.7)
     const item = items[type];
     const [play, {pause, isPlaying}] = useSound(
         item.sound,
-        {
-            volume: volume,
-            interrupt: true
-        }
+        {volume: volume}
     );
 
-    useEffect(()=>{
-        console.log(volume)
-    });
-
-    function goSound() {
+    function playPauseSound() {
         isPlaying ? pause() : play()
     }
 
+    const form = <form>
+        <div className="form-group">
+            {/*<label htmlFor="formControlRange">Example Range input</label>*/}
+            <input
+                type="range"
+                className="form-control-range"
+                id="formControlRange"
+                min='10'
+                max='100'
+                defaultValue='70'
+                onChange={(e) => {
+                    setVolume((e.target.value / 100))
+                }}
+            />
+        </div>
+    </form>;
+
     return (
         <div>
-            <div className="sound-item" onClick={goSound}>
+            <div
+                className="sound-item"
+                style={isPlaying ? {color: 'green'} : {color: 'black'}}
+                onClick={playPauseSound}
+            >
                 {item.img}
             </div>
 
-            <form>
-                <div className="form-group">
-                    {/*<label htmlFor="formControlRange">Example Range input</label>*/}
-                    <input
-                        type="range"
-                        className="form-control-range"
-                        id="formControlRange"
-                        min='10'
-                        max='100'
-                        defaultValue='70'
-                        onChange={(e) => {
-                            setVolume((e.target.value / 100))
-                        }}
-                    />
-                </div>
-            </form>
+            {isPlaying ? form : null}
         </div>
-
     );
 }
 
