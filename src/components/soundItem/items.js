@@ -1,9 +1,9 @@
 import React from "react";
 
-import forestSound from '../../audio/02 - Starlight.mp3';
-import rainSound from '../../audio/03 - Supermassive Black Hole.mp3';
-import thunderstormSound from '../../audio/05-Coma.mp3';
-import windSound from '../../audio/Muse - Hysteria.mp3';
+import forestSound from '../../audio/forest2.mp3';
+import rainSound from '../../audio/train.mp3';
+import thunderstormSound from '../../audio/thunderstorm2.mp3';
+import windSound from '../../audio/wind.mp3';
 
 
 

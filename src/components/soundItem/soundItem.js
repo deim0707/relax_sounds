@@ -18,11 +18,8 @@ function SoundItem({type}) {
     }
 
     const form = <form>
-        {/*<div className="form-group">*/}
-            {/*<label htmlFor="formControlRange">Example Range input</label>*/}
             <input
                 type="range"
-                // className="custom-range"
                 className="volume-range"
                 id="formControlRange"
                 min='10'
@@ -32,7 +29,6 @@ function SoundItem({type}) {
                     setVolume((e.target.value / 100))
                 }}
             />
-        {/*</div>*/}
     </form>;
 
     return (
@@ -46,7 +42,7 @@ function SoundItem({type}) {
             </div>
 
             {isPlaying ? form : null}
-            {/*{form}*/}
+            {form}
         </div>
     );
 }
