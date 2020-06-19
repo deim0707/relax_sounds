@@ -6,8 +6,9 @@ import items from "./items";
 
 
 function SoundItem({type}) {
+
+    const item = items[type]; //here sound and image
     const [volume, setVolume] = useState(0.7)
-    const item = items[type];
     const [play, {pause, isPlaying}] = useSound(
         item.sound,
         {volume: volume}
@@ -32,17 +33,13 @@ function SoundItem({type}) {
     </form>;
 
     return (
-        <div>
-            <div
-                className="sound-item"
-                style={isPlaying ? {color: 'green'} : {color: 'black'}}
-                onClick={playPauseSound}
-            >
-                {item.img}
-            </div>
-
+        <div
+            className="sound-item"
+            style={isPlaying ? {color: 'green'} : {color: 'black'}}
+            onClick={playPauseSound}
+        >
+            {item.img}
             {isPlaying ? form : null}
-            {form}
         </div>
     );
 }

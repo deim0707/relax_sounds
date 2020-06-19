@@ -12,11 +12,11 @@ body {
 
 @keyframes changeBackgroundColor {
     0% {background-color: yellow}
-    10% {background-color: white}
+    10% {background-color: green}
     20% {background-color: orange}
     30% {background-color: darkgreen}
     40% {background-color: darkgoldenrod}
-    650% {background-color: beige}
+    65% {background-color: olivedrab}
     70% {background-color: aqua}
     80% {background-color: blue}
     90% {background-color: cadetblue}
