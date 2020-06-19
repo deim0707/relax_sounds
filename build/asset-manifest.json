@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "./static/css/main.1efbd986.chunk.css",
+    "main.js": "./static/js/main.ac6c1981.chunk.js",
+    "main.js.map": "./static/js/main.ac6c1981.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.eddff80b.js",
+    "runtime-main.js.map": "./static/js/runtime-main.eddff80b.js.map",
+    "static/js/2.65f88666.chunk.js": "./static/js/2.65f88666.chunk.js",
+    "static/js/2.65f88666.chunk.js.map": "./static/js/2.65f88666.chunk.js.map",
+    "static/js/3.6640dbf0.chunk.js": "./static/js/3.6640dbf0.chunk.js",
+    "static/js/3.6640dbf0.chunk.js.map": "./static/js/3.6640dbf0.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.91282c753db2f3fe23664badc2356b06.js": "./precache-manifest.91282c753db2f3fe23664badc2356b06.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.1efbd986.chunk.css.map": "./static/css/main.1efbd986.chunk.css.map",
+    "static/js/2.65f88666.chunk.js.LICENSE.txt": "./static/js/2.65f88666.chunk.js.LICENSE.txt",
+    "static/js/3.6640dbf0.chunk.js.LICENSE.txt": "./static/js/3.6640dbf0.chunk.js.LICENSE.txt",
+    "static/media/birds.mp3": "./static/media/birds.f3fc628d.mp3",
+    "static/media/bonfire1.mp3": "./static/media/bonfire1.6f99b1c4.mp3",
+    "static/media/forest2.mp3": "./static/media/forest2.00d47881.mp3",
+    "static/media/sea_birds.mp3": "./static/media/sea_birds.e7efd03b.mp3",
+    "static/media/south_forest.mp3": "./static/media/south_forest.ef62803f.mp3",
+    "static/media/thunderstorm2.mp3": "./static/media/thunderstorm2.d06ce2ed.mp3",
+    "static/media/train.mp3": "./static/media/train.5ddf0ee7.mp3",
+    "static/media/wind.mp3": "./static/media/wind.07f17009.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eddff80b.js",
+    "static/js/2.65f88666.chunk.js",
+    "static/css/main.1efbd986.chunk.css",
+    "static/js/main.ac6c1981.chunk.js"
+  ]
+}
