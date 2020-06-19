@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import './soundItem.css'
 import useSound from "use-sound";
 
@@ -8,14 +8,23 @@ import items from "./items";
 function SoundItem({type}) {
 
     const item = items[type]; //here sound and image
-    const [volume, setVolume] = useState(0.7)
-    const [play, {pause, isPlaying}] = useSound(
+    const [volume, setVolume] = useState(0.7);
+    const [playing, setPlaying] = useState(false);
+    const [play, {pause, sound}] = useSound(
         item.sound,
-        {volume: volume}
+        {volume: volume, loop: true}
     );
 
+
     function playPauseSound() {
-        isPlaying ? pause() : play()
+        if (playing) {
+            setPlaying(false);
+            pause()
+        } else {
+            setPlaying(true);
+            play()
+        }
+
     }
 
     const form = <form>
@@ -35,11 +44,12 @@ function SoundItem({type}) {
     return (
         <div
             className="sound-item"
-            style={isPlaying ? {color: 'green'} : {color: 'black'}}
+            style={playing ? {fill: 'green', color: 'green'} : {fill: 'black', color: 'black'}}
             onClick={playPauseSound}
         >
             {item.img}
-            {isPlaying ? form : null}
+            {playing ? form : null}
+            {/*{form}*/}
         </div>
     );
 }
