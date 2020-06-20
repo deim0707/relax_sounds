@@ -1,14 +1,18 @@
 import React, {useState, useEffect} from 'react';
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import {random} from "../../redux/actions";
 import useSound from "use-sound";
 import './soundItem.css'
 import items from "./items";
 
 
 function SoundItem({type}) {
+    const dispatch = useDispatch();
+    const pauseAll = useSelector((state) => state.pauseAll);
+    const isRandom = useSelector((state) => state.random);
 
     const item = items[type]; //here sound and image
-    const pauseAll = useSelector((state) => state.pauseAll)
+
     const [volume, setVolume] = useState(0.7);
     const [playing, setPlaying] = useState(false);
 
@@ -26,6 +30,20 @@ function SoundItem({type}) {
         if (!pauseAll && playing) play();
     }, [pauseAll]);
 
+    //random
+    useEffect(()=> {
+        if (isRandom && Math.random() > 0.5) {
+            play();
+            setPlaying(true);
+            dispatch(random(false))
+        }
+        if (isRandom && Math.random() < 0.5) {
+            pause();
+            setPlaying(false);
+            dispatch(random(false))
+        }
+    }, [isRandom]);
+
     function playPauseSound() {
         if (playing) {
             setPlaying(false);
@@ -36,6 +54,9 @@ function SoundItem({type}) {
         }
 
     }
+
+
+
 
     const form = <form>
         <input

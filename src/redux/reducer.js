@@ -1,6 +1,7 @@
 const initialState = {
-    pauseAll: false
-
+    pauseAll: false,
+    stopAll: false,
+    random: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,9 +10,14 @@ const reducer = (state = initialState, action) => {
         case 'PAUSE_ALL':
             return {...state, pauseAll: !state.pauseAll};
 
-        case 'testte':
-            return state;
+        case 'RANDOM':
+            return {...state, random: action.payload};
 
+        case 'STOP_ALL':{
+            console.log(`RANDOM`);
+            return {...state, random: action.payload};
+
+        }
         default:
             return state;
     }

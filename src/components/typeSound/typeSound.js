@@ -9,7 +9,7 @@ const TypeSound = () => {
     return (
         <div className='container typeSound-wrapper pt-5'>
             <div className="row justify-content-around pt-4">
-                {/*типы берём из soundItem/types.js*/}
+                {/*types we take from  soundItem/types.js*/}
                 <SoundItem type='forest'/>
                 <SoundItem type='rain'/>
                 <SoundItem type='thunderstorm'/>
