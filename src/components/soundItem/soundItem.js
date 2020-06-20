@@ -46,7 +46,7 @@ function SoundItem({type}) {
         }
     }, [isRandom]);
 
-    //stoped
+    //stoped all
     useEffect(() => {
         if (isStoped) {
             pause()
