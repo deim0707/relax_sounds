@@ -13,11 +13,9 @@ const reducer = (state = initialState, action) => {
         case 'RANDOM':
             return {...state, random: action.payload};
 
-        case 'STOP_ALL':{
-            console.log(`RANDOM`);
-            return {...state, random: action.payload};
+        case 'STOP_ALL':
+            return {...state, stopAll: action.payload};
 
-        }
         default:
             return state;
     }

@@ -1,5 +1,3 @@
-
-
 export const pauseAll = bool => {
     return {
         type: 'PAUSE_ALL',

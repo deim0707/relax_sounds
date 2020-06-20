@@ -3,7 +3,6 @@ import './typeSound.css'
 import SoundItem from "../soundItem";
 
 
-
 const TypeSound = () => {
 
     return (
