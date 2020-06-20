@@ -1,11 +1,13 @@
 import React from 'react';
 import './app.css'
 import TypeSound from "../typeSound";
+import Header from "../header";
 
 function App() {
     return (
         <div className="app">
-          <TypeSound/>
+            <Header/>
+            <TypeSound/>
         </div>
     );
 }

@@ -1,20 +1,30 @@
-import React, {useState} from 'react';
-import './soundItem.css'
+import React, {useState, useEffect} from 'react';
+import {useSelector} from "react-redux";
 import useSound from "use-sound";
-
+import './soundItem.css'
 import items from "./items";
 
 
 function SoundItem({type}) {
 
     const item = items[type]; //here sound and image
+    const pauseAll = useSelector((state) => state.pauseAll)
     const [volume, setVolume] = useState(0.7);
     const [playing, setPlaying] = useState(false);
+
     const [play, {pause}] = useSound(
         item.sound,
-        {volume: volume, loop: true}
+        {
+            volume: volume,
+            loop: true,
+        }
     );
 
+    //pause all
+    useEffect(() => {
+        if (pauseAll && playing) pause();
+        if (!pauseAll && playing) play();
+    }, [pauseAll]);
 
     function playPauseSound() {
         if (playing) {
