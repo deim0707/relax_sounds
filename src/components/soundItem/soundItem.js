@@ -27,7 +27,7 @@ function SoundItem({type}) {
             if (isPauseAll) pause();
             else play();
         }
-    }, [isPauseAll]);
+    }, [isPauseAll, isPlaying]);
 
     //random
     useEffect(() => {
