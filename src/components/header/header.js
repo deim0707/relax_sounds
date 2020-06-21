@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import './header.css'
 import {useDispatch, useSelector} from "react-redux";
 import {pauseAll, random, stopAll} from "../../redux/actions";
@@ -7,11 +7,12 @@ import {pauseAll, random, stopAll} from "../../redux/actions";
 function Header() {
 
     const dispatch = useDispatch();
-    const isPause = useSelector((state) => state.pauseAll)
+    const isPause = useSelector((state) => state.pauseAll);
 
-    function pause() {
+
+    const pause = useCallback(()=>{
         dispatch(pauseAll())
-    }
+    }, [dispatch]);
 
 
     return (

@@ -30,7 +30,7 @@ function SoundItem({type}) {
     useEffect(() => {
         if (pauseAll && playing) pause();
         if (!pauseAll && playing) play();
-    }, [pauseAll]);
+    }, [pauseAll, playing]);
 
     //random
     useEffect(() => {
@@ -49,11 +49,11 @@ function SoundItem({type}) {
     //stoped all
     useEffect(() => {
         if (isStoped) {
-            pause()
+            pause();
             setPlaying(false);
             dispatch(stopAll(false))
         }
-    }, [isStoped])
+    }, [isStoped]);
 
     function playPauseSound() {
         if (playing) {
