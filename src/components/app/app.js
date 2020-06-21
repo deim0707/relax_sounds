@@ -1,7 +1,7 @@
 import React from 'react';
 import './app.css'
-import TypeSound from "../typeSound";
-import Header from "../header";
+import TypeSound from "../typeSound/typeSound";
+import Header from "../header/header";
 
 function App() {
     return (

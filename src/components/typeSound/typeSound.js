@@ -1,10 +1,8 @@
 import React from 'react';
 import './typeSound.css'
-import SoundItem from "../soundItem";
+import SoundItem from "../soundItem/soundItem";
 
-
-const TypeSound = () => {
-
+function TypeSound() {
     return (
         <div className='container typeSound-wrapper pt-5'>
             <div className="row justify-content-around pt-4">
@@ -28,4 +26,3 @@ const TypeSound = () => {
 };
 
 export default TypeSound;
-
