@@ -1,7 +1,7 @@
 import React from "react";
 
 import forestSound from '../../audio/forest2.mp3';
-import rainSound from '../../audio/train.mp3';
+import rainSound from '../../audio/rain.mp3';
 import thunderstormSound from '../../audio/thunderstorm2.mp3';
 import windSound from '../../audio/wind.mp3';
 import trainSound from '../../audio/train.mp3';
@@ -9,9 +9,6 @@ import bonfireSound from '../../audio/bonfire1.mp3';
 import southForestSound from '../../audio/south_forest.mp3';
 import birdSound from '../../audio/birds.mp3';
 import seaBirdSound from '../../audio/sea_birds.mp3';
-
-
-
 
 const forestImg = <svg className='soundItem' xmlns="http://www.w3.org/2000/svg" width="56" height="56"
                        viewBox="0 0 56 56"><title>Forest</title>
@@ -23,6 +20,7 @@ const forestImg = <svg className='soundItem' xmlns="http://www.w3.org/2000/svg" 
         <path d="M0 0h56v56H0z"></path>
     </g>
 </svg>;
+
 const rainImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"><title>Rain</title>
     <g fill="none" fillRule="evenodd">
         <path fill="currentColor" fillRule="nonzero"
@@ -30,6 +28,7 @@ const rainImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" v
         <path d="M0 0h56v56H0z"></path>
     </g>
 </svg>;
+
 const thunderstormImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
     <title>Thunderstorm</title>
     <g fill="none" fillRule="evenodd">
@@ -50,6 +49,7 @@ const windImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" v
         <path d="M0 0h56v56H0z"></path>
     </g>
 </svg>;
+
 const trainImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"><title>Train</title>
     <g fill="none" fillRule="evenodd">
         <path fill="currentColor" fillRule="nonzero"
@@ -57,6 +57,7 @@ const trainImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" 
         <path d="M0 0h56v56H0z"></path>
     </g>
 </svg>;
+
 const bonfireImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
     <title>Bonfire</title>
     <g fill="none" fillRule="evenodd">
@@ -65,6 +66,7 @@ const bonfireImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56
         <path d="M0 0h56v56H0z"></path>
     </g>
 </svg>;
+
 const southForestImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
     <title>Tropical forest</title>
     <g fill="none" fillRule="evenodd">
@@ -75,6 +77,7 @@ const southForestImg = <svg xmlns="http://www.w3.org/2000/svg" width="56" height
         <path d="M0 0h56v56H0z"></path>
     </g>
 </svg>;
+
 const birdImg = <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 403 403">
     <g>
@@ -94,37 +97,8 @@ const birdImg = <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg"
         <path d="M134,205.447c0-4.418-3.582-8-8-8s-8,3.582-8,8c0,6.67,0.742,13.321,2.205,19.771c0.843,3.713,4.141,6.231,7.795,6.231
 		c0.586,0,1.182-0.065,1.777-0.2c4.309-0.978,7.009-5.263,6.031-9.572C134.608,216.388,134,210.928,134,205.447z"/>
     </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
-    <g>
-    </g>
 </svg>;
+
 const seaBirdImg = <svg  id="Capa_1" x="0px" y="0px" width="56" height="56"
                         viewBox="0 0 393.002 393.002" >
 <g>
@@ -166,38 +140,7 @@ const seaBirdImg = <svg  id="Capa_1" x="0px" y="0px" width="56" height="56"
 		c0.833,0.341,1.721,0.53,2.62,0.556l31.703,0.942C316.069,162.059,266.502,181.773,248.512,187.63z"/>
     <circle cx="69.501" cy="50.761" r="8.215"/>
 </g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
-    <g>
-</g>
 </svg>
-
 
 const items = {
     forest: {img: forestImg, sound: forestSound},
@@ -209,9 +152,6 @@ const items = {
     southForest: {img: southForestImg, sound: southForestSound},
     bird: {img: birdImg, sound: birdSound},
     seaBird: {img: seaBirdImg, sound: seaBirdSound},
-
-
-
 };
 
 export default items;
