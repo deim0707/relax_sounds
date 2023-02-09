@@ -1,7 +1,7 @@
 import React from "react";
 
 import forestSound from '../../audio/forest2.mp3';
-import rainSound from '../../audio/train.mp3';
+import rainSound from '../../audio/thunderstorm.mp3';
 import thunderstormSound from '../../audio/thunderstorm2.mp3';
 import windSound from '../../audio/wind.mp3';
 import trainSound from '../../audio/train.mp3';
