@@ -1,14 +1,14 @@
-.sound-item {
+.soundItem {
     width: 75px;
     height: 75px;
     margin: 10px 5px;
     cursor: pointer;
 }
-.sound-item svg {
+.soundItem svg {
     width: 75px;
 }
 
-.volume-range {
+.volumeRange {
     -webkit-appearance: none;
     outline: none;
 
@@ -19,7 +19,7 @@
     border-radius: 4px;
 }
 
-.volume-range::-webkit-slider-thumb {
+.volumeRange::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 15px;
     height: 15px;
@@ -31,7 +31,7 @@
     cursor: pointer;
 }
 
-.volume-range::-moz-range-track {
+.volumeRange::-moz-range-track {
     outline: none;
 
     width: 100%;
@@ -41,7 +41,7 @@
     border-radius: 4px;
 }
 
-.volume-range::-moz-range-thumb {
+.volumeRange::-moz-range-thumb {
     -webkit-appearance: none;
     width: 15px;
     height: 15px;

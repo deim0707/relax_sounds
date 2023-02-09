@@ -199,7 +199,7 @@ const seaBirdImg = <svg  id="Capa_1" x="0px" y="0px" width="56" height="56"
 </svg>
 
 
-const items = {
+const itemsConfig = {
     forest: {img: forestImg, sound: forestSound},
     rain: {img: rainImg, sound: rainSound},
     thunderstorm: {img: thunderstormImg, sound: thunderstormSound},
@@ -214,4 +214,4 @@ const items = {
 
 };
 
-export default items;
+export default itemsConfig;

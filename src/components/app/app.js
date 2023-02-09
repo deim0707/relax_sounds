@@ -1,11 +1,11 @@
 import React from 'react';
-import './app.css'
 import TypeSound from "../typeSound";
 import Header from "../header";
+import style from './app.module.css'
 
 function App() {
     return (
-        <div className="app">
+        <div className={style.app}>
             <Header/>
             <TypeSound/>
         </div>

@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from "react-redux";
-import {random, stopAll} from "../../redux/actions";
+import {random, stopAll} from "src/redux/actions";
 import useSound from "use-sound";
-import './soundItem.css'
-import items from "./items";
+import itemsConfig from "./itemsConfig";
+import style  from './soundItem.module.css'
 
 
 function SoundItem({type}) {
@@ -13,7 +13,7 @@ function SoundItem({type}) {
     const isStoped = useSelector((state) => state.stopAll);
 
 
-    const item = items[type]; //here sound and image
+    const item = itemsConfig[type]; //here sound and image
 
     const [volume, setVolume] = useState(0.7);
     const [playing, setPlaying] = useState(false);
@@ -26,6 +26,7 @@ function SoundItem({type}) {
         }
     );
 
+    //fixme убрать ифы внутри юзЭффекта. что за дичь
     //pause all
     useEffect(() => {
         if (pauseAll && playing) pause();
@@ -70,7 +71,7 @@ function SoundItem({type}) {
     const form = <form>
         <input
             type="range"
-            className="volume-range"
+            className={style.volumeRange}
             id="formControlRange"
             min='10'
             max='100'
@@ -83,7 +84,7 @@ function SoundItem({type}) {
 
     return (
         <div
-            className="sound-item"
+            className={style.soundItem}
             style={playing ? {fill: 'green', color: 'green'} : {fill: 'black', color: 'black'}}
         >
             <div onClick={playPauseSound}>

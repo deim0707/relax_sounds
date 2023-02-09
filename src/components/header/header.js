@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
-import './header.css'
 import {useDispatch, useSelector} from "react-redux";
-import {pauseAll, random, stopAll} from "../../redux/actions";
+import {pauseAll, random, stopAll} from "src/redux/actions";
+import style from './header.module.css'
 
 
 function Header() {
@@ -16,13 +16,26 @@ function Header() {
 
 
     return (
-        <div className="header container">
-            <button className='btn button' onClick={pause}>
+        <div>
+            <button
+                className={style.button}
+                onClick={pause}
+            >
                 {/*Pause all*/}
                 {isPause ? 'Play again' : 'Pause all'}
             </button>
-            <button className='btn button' onClick={() => dispatch(stopAll(true))}>Stop all</button>
-            <button className='btn button' onClick={() => dispatch(random(true))}>Random</button>
+            <button
+                className={style.button}
+                onClick={() => dispatch(stopAll(true))}
+            >
+                Stop all
+            </button>
+            <button
+                className={style.button}
+                onClick={() => dispatch(random(true))}
+            >
+                Random
+            </button>
         </div>
     );
 }
