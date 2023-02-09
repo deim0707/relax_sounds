@@ -23,15 +23,15 @@ import WindIcon from "../../icons/wind.svg";
 
 
 const itemsConfig = {
-    forest: {icon: <ForestIcon/>, sound: forestSound},
-    rain: {icon: <RainIcon/>, sound: rainSound},
-    thunderstorm: {icon: <ThunderstormIcon/>, sound: thunderstormSound},
-    wind: {icon: <WindIcon/>, sound: windSound},
-    train: {icon: <TrainIcon/>, sound: trainSound},
-    bonfire: {icon: <BonfireIcon/>, sound: bonfireSound},
-    southForest: {icon: <SouthForestIcon/>, sound: southForestSound},
-    bird: {icon: <BirdIcon/>, sound: birdSound},
-    seaBird: {icon: <SeaBirdIcon/>, sound: seaBirdSound},
+    forest: {icon: ForestIcon, sound: forestSound},
+    rain: {icon: RainIcon, sound: rainSound},
+    thunderstorm: {icon: ThunderstormIcon, sound: thunderstormSound},
+    wind: {icon: WindIcon, sound: windSound},
+    train: {icon: TrainIcon, sound: trainSound},
+    bonfire: {icon: BonfireIcon, sound: bonfireSound},
+    southForest: {icon: SouthForestIcon, sound: southForestSound},
+    bird: {icon: BirdIcon, sound: birdSound},
+    seaBird: {icon: SeaBirdIcon, sound: seaBirdSound},
 
 
 

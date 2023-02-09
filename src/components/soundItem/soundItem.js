@@ -83,13 +83,14 @@ function SoundItem({type}) {
         />
     </form>;
 
+    const Icon = item.icon;
     return (
         <div
             className={style.soundItem}
             style={playing ? {fill: 'green', color: 'green'} : {fill: 'black', color: 'black'}}
         >
             <div onClick={playPauseSound}>
-                {item.icon}
+                <Icon />
             </div>
 
             {playing ? form : null}
