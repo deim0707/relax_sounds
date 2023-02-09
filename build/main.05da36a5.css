@@ -1,0 +1,105 @@
+.soundItem_pQpi {
+    width: 75px;
+    height: 75px;
+    margin: 10px 5px;
+    cursor: pointer;
+}
+.soundItem_pQpi svg {
+    width: 75px;
+}
+
+.volumeRange_ZVD5 {
+    -webkit-appearance: none;
+    outline: none;
+
+    width: 100%;
+    height: 6px;
+
+    background-color: #000;
+    border-radius: 4px;
+}
+
+.volumeRange_ZVD5::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+
+    border-radius: 10px;
+    border: 1px solid black;
+
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.volumeRange_ZVD5::-moz-range-track {
+    outline: none;
+
+    width: 100%;
+    height: 6px;
+
+    background-color: #000;
+    border-radius: 4px;
+}
+
+.volumeRange_ZVD5::-moz-range-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+
+    border-radius: 10px;
+    border: 1px solid black;
+
+    background-color: #fff;
+    cursor: pointer;
+
+}
+
+.mainWrapper_RVKa {
+    padding: 20px;
+}
+
+.soundsWrapper_fwnC {
+    max-width: 700px;
+    margin: 0 auto;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.button_tm2u {
+    background: none;
+    padding: 6px 12px;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+.button_tm2u:hover {
+    font-weight: 600;
+}
+.app_DV2u {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    -webkit-animation: changeBackgroundColor_joT9 105s infinite linear;
+    -o-animation: changeBackgroundColor_joT9 105s infinite linear;
+    animation: changeBackgroundColor_joT9 105s infinite linear;
+}
+
+
+@keyframes changeBackgroundColor_joT9 {
+    0% {background-color: green}
+    10% {background-color: dodgerblue}
+    20% {background-color: blue}
+    30% {background-color: mediumpurple}
+    40% {background-color: darkred}
+    65% {background-color: orangered}
+    70% {background-color: yellow}
+    80% {background-color: yellowgreen}
+    90% {background-color: deepskyblue}
+    100% {background-color: green}
+}
+
+body {
+    margin: 0;
+}

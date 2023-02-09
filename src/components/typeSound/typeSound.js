@@ -5,7 +5,7 @@ import style from './typeSound.module.css';
 
 const TypeSound = () => {
     return (
-        <div className={style.mainWrapper}>
+        <main className={style.mainWrapper}>
                 {/*types we take from  soundItem/types.js*/}
                 <div className={style.soundsWrapper}>
                     <SoundItem type='forest'/>
@@ -18,7 +18,7 @@ const TypeSound = () => {
                     <SoundItem type='southForest'/>
                     <SoundItem type='bird'/>
                 </div>
-        </div>
+        </main>
     )
 };
 

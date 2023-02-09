@@ -6,11 +6,12 @@ import itemsConfig from "./itemsConfig";
 import style  from './soundItem.module.css'
 
 
+// todo затипизировать бы тут прос с типом звука
 function SoundItem({type}) {
     const dispatch = useDispatch();
     const pauseAll = useSelector((state) => state.pauseAll);
     const isRandom = useSelector((state) => state.random);
-    const isStoped = useSelector((state) => state.stopAll);
+    const isStopped = useSelector((state) => state.stopAll);
 
 
     const item = itemsConfig[type]; //here sound and image
@@ -49,12 +50,12 @@ function SoundItem({type}) {
 
     //stoped all
     useEffect(() => {
-        if (isStoped) {
+        if (isStopped) {
             pause();
             setPlaying(false);
             dispatch(stopAll(false))
         }
-    }, [isStoped]);
+    }, [isStopped]);
 
     function playPauseSound() {
         if (playing) {
@@ -88,7 +89,7 @@ function SoundItem({type}) {
             style={playing ? {fill: 'green', color: 'green'} : {fill: 'black', color: 'black'}}
         >
             <div onClick={playPauseSound}>
-                {item.img}
+                {item.icon}
             </div>
 
             {playing ? form : null}

@@ -1,16 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-
+const TerserJSPlugin = require('terser-webpack-plugin'); // remove LICENSE files from ./build
 
 
 module.exports = (_, argv) => {
     const isProductionMode = argv.mode === 'production';
     return {
-        mode: 'development',
-        entry: '/src/index.js',
+        mode: argv.mode,
+        entry: path.resolve(__dirname, 'src/index.js'),
+        devtool: isProductionMode ? false : 'source-map',
         output: {
-            path: path.resolve(__dirname, 'dist'),
+            path: path.resolve(__dirname, 'build'),
             filename: isProductionMode ? '[name].[contenthash:8].js' : '[name].js',
         },
         resolve: {
@@ -19,7 +20,13 @@ module.exports = (_, argv) => {
                 src: path.resolve(__dirname, 'src'),
             },
         },
-        devtool: isProductionMode && process.env.APP_ENV === 'prod' ? false : 'source-map',
+        optimization: {
+            minimizer: [
+                new TerserJSPlugin({
+                    extractComments: false, // to remove files ending in `.LICENSE`.
+                }),
+            ],
+        },
         module: {
             rules: [
                 {
@@ -49,8 +56,16 @@ module.exports = (_, argv) => {
                     },
                 },
                 {
-                    test: /\.(mp3)/,
-                    use: ['file-loader']
+                    test: /\.svg$/i,
+                    issuer: /\.[jt]sx?$/,
+                    use: ['@svgr/webpack'],
+                },
+                {
+                    test: /\.(mp3)$/i,
+                    loader: 'file-loader',
+                    options: {
+                        name: 'audio/[name].[ext]',
+                    },
                 },
 
             ],

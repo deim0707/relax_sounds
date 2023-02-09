@@ -16,7 +16,7 @@ function Header() {
 
 
     return (
-        <div>
+        <header>
             <button
                 className={style.button}
                 onClick={pause}
@@ -36,7 +36,7 @@ function Header() {
             >
                 Random
             </button>
-        </div>
+        </header>
     );
 }
 
