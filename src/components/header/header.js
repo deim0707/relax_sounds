@@ -1,47 +1,34 @@
 import React from 'react';
-import style from './header.module.css'
 import useGlobalAudioContext from "src/context/useGlobalAudioContext";
+import style from './header.module.css'
 
 
+// todo тут надо поработать с текстом/кнопками. блокировать взаимодействие если надо. менять текст если надо
 function Header() {
     const {
-        isStopAllValue, setIsStopAll,
-        isPauseAllValue, seIsPauseAll,
-        isRandomAllValue, setIsRandomAll
+        isPauseAll,
+        stopAll, pauseAll, randomAll,
     } = useGlobalAudioContext();
 
-    const pauseAllSounds = () => {
-        seIsPauseAll(!isPauseAllValue);
-        setIsStopAll(false);
-    };
-    const stopAllSounds = () => {
-        setIsStopAll(true);
-        setIsRandomAll(false);
-    };
-    const randomSounds = () => {
-        setIsRandomAll(true);
-        setIsStopAll(false);
-    };
 
-
-    const pauseText = isPauseAllValue ? 'Play again' : 'Pause all';
+    const pauseText = isPauseAll ? 'Play again' : 'Pause all';
     return (
         <header>
             <button
                 className={style.button}
-                onClick={pauseAllSounds}
+                onClick={pauseAll}
             >
                 {pauseText}
             </button>
             <button
                 className={style.button}
-                onClick={stopAllSounds}
+                onClick={stopAll}
             >
                 Stop all
             </button>
             <button
                 className={style.button}
-                onClick={randomSounds}
+                onClick={randomAll}
             >
                 Go random!
             </button>

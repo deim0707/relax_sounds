@@ -1,18 +1,16 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
 import GlobalAudioContext from "src/context";
 import Layout from "../typeSound";
 import Header from "../header";
+import {globalSoundInitialState, globalSoundStateReducer} from "src/context/reducer";
 import style from './app.module.css'
 
 function App() {
-    const isStopAll = useState(false);
-    const isPauseAll = useState(false);
-    const isRandomAll = useState(false);
-    const contextValue = {isStopAll, isPauseAll, isRandomAll};
+    const globalAudioStateReducer = useReducer(globalSoundStateReducer, globalSoundInitialState);
 
     return (
         <div className={style.app}>
-            <GlobalAudioContext.Provider value={contextValue}>
+            <GlobalAudioContext.Provider value={globalAudioStateReducer}>
                 <Header/>
                 <Layout/>
             </GlobalAudioContext.Provider>

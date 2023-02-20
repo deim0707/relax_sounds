@@ -7,17 +7,17 @@ import style from './soundItem.module.css'
 const playingItemStyles = {fill: 'green', color: 'green'};
 const notPlayingItemStyles = {fill: 'black', color: 'black'};
 
-// todo затипизировать бы тут прос с типом звука
+// todo тут лишние рендеры
 function SoundItem({Icon, sound}) {
     const {
-        isStopAllValue, setIsStopAll,
-        isPauseAllValue, seIsPauseAll,
-        isRandomAllValue, setIsRandomAll
+        isStoppedAll, isPauseAll, isRandomAll,
+        changeStopAll,
+        changeRandomAll,
     } = useGlobalAudioContext();
 
 
     const [volume, setVolume] = useState(0.7);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isItemPlaying, setIsItemPlaying] = useState(false);
 
     const [play, {pause}] = useSound(
         sound,
@@ -29,43 +29,47 @@ function SoundItem({Icon, sound}) {
 
     //pause all
     useEffect(() => {
-        if (isPauseAllValue && isPlaying) pause();
-        if (!isPauseAllValue && isPlaying) play();
-    }, [isPauseAllValue, isPlaying]);
+        if (isPauseAll && isItemPlaying) pause();
+        if (!isPauseAll && isItemPlaying) play();
+    }, [isPauseAll, isItemPlaying]);
 
     //random
     useEffect(() => {
         const randomNumber = Math.random();
-        if (isRandomAllValue && randomNumber > 0.5) {
+        if (isRandomAll && randomNumber > 0.5) {
             play();
-            setIsPlaying(true);
-            setIsRandomAll(false);
+            setIsItemPlaying(true);
+            // setIsRandomAll(false);
+            changeRandomAll(false);
         }
-        if (isRandomAllValue && randomNumber < 0.5) {
+        if (isRandomAll && randomNumber < 0.5) {
             pause();
-            setIsPlaying(false);
-            setIsRandomAll(false);
+            setIsItemPlaying(false);
+            // setIsRandomAll(false);
+            changeRandomAll(false);
         }
-    }, [isRandomAllValue]);
+    }, [isRandomAll]);
 
     //stoped all
     useEffect(() => {
-        if (isStopAllValue) {
+        if (isStoppedAll) {
             pause();
-            setIsPlaying(false);
-            setIsStopAll(false);
+            setIsItemPlaying(false);
+            // setIsStopAll(false);
+            changeStopAll(false);
         }
-    }, [isStopAllValue]);
+    }, [isStoppedAll]);
 
     function playPauseSound() {
-        if (isPlaying) {
-            setIsPlaying(false);
+        if (isItemPlaying) {
+            setIsItemPlaying(false);
             pause()
         } else {
-            setIsPlaying(true);
+            setIsItemPlaying(true);
             play()
         }
-        setIsStopAll(false);
+        // setIsStopAll(false);
+        changeStopAll(false);
     }
 
 
@@ -84,7 +88,7 @@ function SoundItem({Icon, sound}) {
         />
     </form>;
 
-    const currentItemStyles = isPlaying ? playingItemStyles : notPlayingItemStyles
+    const currentItemStyles = isItemPlaying ? playingItemStyles : notPlayingItemStyles
     return (
         <div
             className={style.soundItem}
@@ -94,7 +98,7 @@ function SoundItem({Icon, sound}) {
                 <Icon/>
             </div>
 
-            {isPlaying ? formElement : null}
+            {isItemPlaying ? formElement : null}
         </div>
 
     );
