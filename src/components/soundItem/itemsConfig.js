@@ -1,24 +1,24 @@
 import React from "react";
 
-import forestSound from '../../audio/forest2.mp3';
-import rainSound from '../../audio/thunderstorm.mp3';
-import thunderstormSound from '../../audio/thunderstorm2.mp3';
-import windSound from '../../audio/wind.mp3';
-import trainSound from '../../audio/train.mp3';
-import bonfireSound from '../../audio/bonfire1.mp3';
-import southForestSound from '../../audio/south_forest.mp3';
-import birdSound from '../../audio/birds.mp3';
-import seaBirdSound from '../../audio/sea_birds.mp3';
+import forestSound from '../../assets/audio/forest2.mp3';
+import rainSound from '../../assets/audio/thunderstorm.mp3';
+import thunderstormSound from '../../assets/audio/thunderstorm2.mp3';
+import windSound from '../../assets/audio/wind.mp3';
+import trainSound from '../../assets/audio/train.mp3';
+import bonfireSound from '../../assets/audio/bonfire1.mp3';
+import southForestSound from '../../assets/audio/south_forest.mp3';
+import birdSound from '../../assets/audio/birds.mp3';
+import seaBirdSound from '../../assets/audio/sea_birds.mp3';
 
-import BirdIcon from "../../icons/bird.svg";
-import BonfireIcon from "../../icons/bonfire.svg";
-import ForestIcon from "../../icons/forest.svg";
-import RainIcon from "../../icons/rain.svg";
-import SeaBirdIcon from "../../icons/seaBird.svg";
-import SouthForestIcon from "../../icons/southForest.svg";
-import ThunderstormIcon from "../../icons/thunderstorm.svg";
-import TrainIcon from "../../icons/train.svg";
-import WindIcon from "../../icons/wind.svg";
+import BirdIcon from "../../assets/icons/bird.svg";
+import BonfireIcon from "../../assets/icons/bonfire.svg";
+import ForestIcon from "../../assets/icons/forest.svg";
+import RainIcon from "../../assets/icons/rain.svg";
+import SeaBirdIcon from "../../assets/icons/seaBird.svg";
+import SouthForestIcon from "../../assets/icons/southForest.svg";
+import ThunderstormIcon from "../../assets/icons/thunderstorm.svg";
+import TrainIcon from "../../assets/icons/train.svg";
+import WindIcon from "../../assets/icons/wind.svg";
 
 
 
