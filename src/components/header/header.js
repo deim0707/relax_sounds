@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {pauseAll, random, stopAll} from "src/redux/actions";
 import style from './header.module.css'
@@ -10,29 +10,29 @@ function Header() {
     const isPause = useSelector((state) => state.pauseAll);
 
 
-    const pause = useCallback(()=>{
-        dispatch(pauseAll())
-    }, [dispatch]);
+    const pauseAllSounds = () => dispatch(pauseAll());
+    const stopAllSounds = () => dispatch(stopAll(true));
+    const randomSounds = () => dispatch(random(true));
 
 
+    const pauseText = isPause ? 'Play again' : 'Pause all';
     return (
         <header>
             <button
                 className={style.button}
-                onClick={pause}
+                onClick={pauseAllSounds}
             >
-                {/*Pause all*/}
-                {isPause ? 'Play again' : 'Pause all'}
+                {pauseText}
             </button>
             <button
                 className={style.button}
-                onClick={() => dispatch(stopAll(true))}
+                onClick={stopAllSounds}
             >
                 Stop all
             </button>
             <button
                 className={style.button}
-                onClick={() => dispatch(random(true))}
+                onClick={randomSounds}
             >
                 Random
             </button>
