@@ -1,21 +1,30 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {pauseAll, random, stopAll} from "src/redux/actions";
 import style from './header.module.css'
+import useGlobalAudioContext from "src/context/useGlobalAudioContext";
 
 
 function Header() {
+    const {
+        isStopAllValue, setIsStopAll,
+        isPauseAllValue, seIsPauseAll,
+        isRandomAllValue, setIsRandomAll
+    } = useGlobalAudioContext();
 
-    const dispatch = useDispatch();
-    const isPause = useSelector((state) => state.pauseAll);
+    const pauseAllSounds = () => {
+        seIsPauseAll(!isPauseAllValue);
+        setIsStopAll(false);
+    };
+    const stopAllSounds = () => {
+        setIsStopAll(true);
+        setIsRandomAll(false);
+    };
+    const randomSounds = () => {
+        setIsRandomAll(true);
+        setIsStopAll(false);
+    };
 
 
-    const pauseAllSounds = () => dispatch(pauseAll());
-    const stopAllSounds = () => dispatch(stopAll(true));
-    const randomSounds = () => dispatch(random(true));
-
-
-    const pauseText = isPause ? 'Play again' : 'Pause all';
+    const pauseText = isPauseAllValue ? 'Play again' : 'Pause all';
     return (
         <header>
             <button
@@ -34,7 +43,7 @@ function Header() {
                 className={style.button}
                 onClick={randomSounds}
             >
-                Random
+                Go random!
             </button>
         </header>
     );

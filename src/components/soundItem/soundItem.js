@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {useSelector, useDispatch} from "react-redux";
-import {random, stopAll} from "src/redux/actions";
+import React, {useEffect, useState} from 'react';
 import useSound from "use-sound";
+import useGlobalAudioContext from "src/context/useGlobalAudioContext";
 import style from './soundItem.module.css'
 
 
@@ -10,10 +9,11 @@ const notPlayingItemStyles = {fill: 'black', color: 'black'};
 
 // todo затипизировать бы тут прос с типом звука
 function SoundItem({Icon, sound}) {
-    const dispatch = useDispatch();
-    const pauseAll = useSelector((state) => state.pauseAll);
-    const isRandom = useSelector((state) => state.random);
-    const isStopped = useSelector((state) => state.stopAll);
+    const {
+        isStopAllValue, setIsStopAll,
+        isPauseAllValue, seIsPauseAll,
+        isRandomAllValue, setIsRandomAll
+    } = useGlobalAudioContext();
 
 
     const [volume, setVolume] = useState(0.7);
@@ -29,33 +29,33 @@ function SoundItem({Icon, sound}) {
 
     //pause all
     useEffect(() => {
-        if (pauseAll && isPlaying) pause();
-        if (!pauseAll && isPlaying) play();
-    }, [pauseAll, isPlaying]);
+        if (isPauseAllValue && isPlaying) pause();
+        if (!isPauseAllValue && isPlaying) play();
+    }, [isPauseAllValue, isPlaying]);
 
     //random
     useEffect(() => {
         const randomNumber = Math.random();
-        if (isRandom && randomNumber > 0.5) {
+        if (isRandomAllValue && randomNumber > 0.5) {
             play();
             setIsPlaying(true);
-            dispatch(random(false))
+            setIsRandomAll(false);
         }
-        if (isRandom && randomNumber < 0.5) {
+        if (isRandomAllValue && randomNumber < 0.5) {
             pause();
             setIsPlaying(false);
-            dispatch(random(false))
+            setIsRandomAll(false);
         }
-    }, [isRandom]);
+    }, [isRandomAllValue]);
 
     //stoped all
     useEffect(() => {
-        if (isStopped) {
+        if (isStopAllValue) {
             pause();
             setIsPlaying(false);
-            dispatch(stopAll(false))
+            setIsStopAll(false);
         }
-    }, [isStopped]);
+    }, [isStopAllValue]);
 
     function playPauseSound() {
         if (isPlaying) {
@@ -65,7 +65,7 @@ function SoundItem({Icon, sound}) {
             setIsPlaying(true);
             play()
         }
-
+        setIsStopAll(false);
     }
 
 
