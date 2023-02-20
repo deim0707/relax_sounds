@@ -1,5 +1,5 @@
 import React from 'react';
-import TypeSound from "../typeSound";
+import Layout from "../typeSound";
 import Header from "../header";
 import style from './app.module.css'
 
@@ -7,7 +7,7 @@ function App() {
     return (
         <div className={style.app}>
             <Header/>
-            <TypeSound/>
+            <Layout/>
         </div>
     );
 }

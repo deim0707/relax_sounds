@@ -3,7 +3,7 @@ import SoundItem from "../soundItem";
 import style from './typeSound.module.css';
 
 
-const TypeSound = () => {
+const Layout = () => {
     return (
         <main className={style.mainWrapper}>
                 {/*types we take from  soundItem/types.js*/}
@@ -22,5 +22,5 @@ const TypeSound = () => {
     )
 };
 
-export default TypeSound;
+export default Layout;
 

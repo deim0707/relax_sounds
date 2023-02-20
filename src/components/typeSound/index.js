@@ -1,3 +1,3 @@
-import TypeSound from "./typeSound";
+import Layout from "./layout";
 
-export default TypeSound;
+export default Layout;
