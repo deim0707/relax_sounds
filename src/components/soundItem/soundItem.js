@@ -2,48 +2,48 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from "react-redux";
 import {random, stopAll} from "src/redux/actions";
 import useSound from "use-sound";
-import itemsConfig from "./itemsConfig";
-import style  from './soundItem.module.css'
+import style from './soundItem.module.css'
 
+
+const playingItemStyles = {fill: 'green', color: 'green'};
+const notPlayingItemStyles = {fill: 'black', color: 'black'};
 
 // todo затипизировать бы тут прос с типом звука
-function SoundItem({type}) {
+function SoundItem({Icon, sound}) {
     const dispatch = useDispatch();
     const pauseAll = useSelector((state) => state.pauseAll);
     const isRandom = useSelector((state) => state.random);
     const isStopped = useSelector((state) => state.stopAll);
 
 
-    const item = itemsConfig[type]; //here sound and image
-
     const [volume, setVolume] = useState(0.7);
-    const [playing, setPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const [play, {pause}] = useSound(
-        item.sound,
+        sound,
         {
             volume: volume,
             loop: true,
         }
     );
 
-    //fixme убрать ифы внутри юзЭффекта. что за дичь
     //pause all
     useEffect(() => {
-        if (pauseAll && playing) pause();
-        if (!pauseAll && playing) play();
-    }, [pauseAll, playing]);
+        if (pauseAll && isPlaying) pause();
+        if (!pauseAll && isPlaying) play();
+    }, [pauseAll, isPlaying]);
 
     //random
     useEffect(() => {
-        if (isRandom && Math.random() > 0.5) {
+        const randomNumber = Math.random();
+        if (isRandom && randomNumber > 0.5) {
             play();
-            setPlaying(true);
+            setIsPlaying(true);
             dispatch(random(false))
         }
-        if (isRandom && Math.random() < 0.5) {
+        if (isRandom && randomNumber < 0.5) {
             pause();
-            setPlaying(false);
+            setIsPlaying(false);
             dispatch(random(false))
         }
     }, [isRandom]);
@@ -52,24 +52,27 @@ function SoundItem({type}) {
     useEffect(() => {
         if (isStopped) {
             pause();
-            setPlaying(false);
+            setIsPlaying(false);
             dispatch(stopAll(false))
         }
     }, [isStopped]);
 
     function playPauseSound() {
-        if (playing) {
-            setPlaying(false);
+        if (isPlaying) {
+            setIsPlaying(false);
             pause()
         } else {
-            setPlaying(true);
+            setIsPlaying(true);
             play()
         }
 
     }
 
 
-    const form = <form>
+    const changeVolume = (e) => {
+        setVolume((e.target.value / 100))
+    }
+    const formElement = <form>
         <input
             type="range"
             className={style.volumeRange}
@@ -77,23 +80,21 @@ function SoundItem({type}) {
             min='10'
             max='100'
             defaultValue='70'
-            onChange={(e) => {
-                setVolume((e.target.value / 100))
-            }}
+            onChange={changeVolume}
         />
     </form>;
 
-    const Icon = item.icon;
+    const currentItemStyles = isPlaying ? playingItemStyles : notPlayingItemStyles
     return (
         <div
             className={style.soundItem}
-            style={playing ? {fill: 'green', color: 'green'} : {fill: 'black', color: 'black'}}
+            style={currentItemStyles}
         >
             <div onClick={playPauseSound}>
-                <Icon />
+                <Icon/>
             </div>
 
-            {playing ? form : null}
+            {isPlaying ? formElement : null}
         </div>
 
     );

@@ -1,23 +1,17 @@
 import React from 'react';
 import SoundItem from "../soundItem";
+import itemsConfig from "src/components/soundItem/itemsConfig";
 import style from './typeSound.module.css';
 
 
 const Layout = () => {
     return (
         <main className={style.mainWrapper}>
-                {/*types we take from  soundItem/types.js*/}
-                <div className={style.soundsWrapper}>
-                    <SoundItem type='forest'/>
-                    <SoundItem type='rain'/>
-                    <SoundItem type='thunderstorm'/>
-                    <SoundItem type='wind'/>
-                    <SoundItem type='train'/>
-                    <SoundItem type='seaBird'/>
-                    <SoundItem type='bonfire'/>
-                    <SoundItem type='southForest'/>
-                    <SoundItem type='bird'/>
-                </div>
+            <div className={style.soundsWrapper}>
+                {Object.entries(itemsConfig).map(([key, {icon, sound}]) => (
+                    <SoundItem Icon={icon} sound={sound} key={key}/>
+                ))}
+            </div>
         </main>
     )
 };
